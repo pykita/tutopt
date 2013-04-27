@@ -4,8 +4,10 @@ namespace Tutopt.Controllers
 {
     public class GoodsController : Controller
     {
-        //
-        // GET: /Goods/
+        public GoodsController()
+        {
+            
+        }
 
         public ActionResult Index()
         {

@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Tutopt.Models.Storage;
 
 namespace Tutopt.Storage
 {
-    interface IGoodsStorage
+    public interface IGoodsStorage : IDisposable
     {
+        IQueryable<Goods> Goodses();
+        void SaveChanges();
+        void AddGoods(Goods goods);
+        void UpdateGoods(Goods goods);
     }
 }
