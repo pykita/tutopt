@@ -125,6 +125,8 @@
     </Compile>
     <Compile Include="Models\Goods\GoodsItem.cs" />
     <Compile Include="Models\Goods\GoodsViewModel.cs" />
+    <Compile Include="Models\Orders\OrderItem.cs" />
+    <Compile Include="Models\Orders\OrderViewModel.cs" />
     <Compile Include="Models\Storage\EntityStorage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,7 +134,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\GoodsService.cs" />
+    <Compile Include="Service\IOrderService.cs" />
+    <Compile Include="Service\OrderService.cs" />
     <Compile Include="Storage\IGoodsStorage.cs" />
+    <Compile Include="Storage\IOrdersStorage.cs" />
+    <Compile Include="Storage\OrdersStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

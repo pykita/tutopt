@@ -4,9 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="uh252489_dbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="uh252489_dbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="uh252489_dbModelStoreContainer">
           <EntitySet Name="Goods" EntityType="uh252489_dbModel.Store.Goods" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="uh252489_dbModel.Store.Orders" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Goods">
           <Key>
@@ -28,13 +29,31 @@
           <Property Name="Warranty" Type="smallint" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber1C" Type="bigint" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="70" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="PhoneNumber" Type="char" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="DeliveryTypeId" Type="tinyint" Nullable="false" />
+          <Property Name="OrderStatusId" Type="tinyint" Nullable="false" />
+          <Property Name="PaymentTypeId" Type="smallint" Nullable="false" />
+          <Property Name="TransporterTypeId" Type="smallint" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="uh252489_dbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="EntityStorage" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Goods" EntityType="uh252489_dbModel.Goods" />
+          <EntitySet Name="Orders" EntityType="uh252489_dbModel.Orders" />
         </EntityContainer>
         <EntityType Name="Goods">
           <Key>
@@ -55,6 +74,24 @@
           <Property Name="IsWarranty" Type="Boolean" Nullable="false" />
           <Property Name="Warranty" Type="Int16" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="OrderNumber1C" />
+          <Property Type="String" Name="CustomerName" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="OrderDate" />
+          <Property Type="DateTime" Name="DeliveryDate" />
+          <Property Type="Byte" Name="DeliveryTypeId" Nullable="false" />
+          <Property Type="Byte" Name="OrderStatusId" Nullable="false" />
+          <Property Type="Int16" Name="PaymentTypeId" Nullable="false" />
+          <Property Type="Int16" Name="TransporterTypeId" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -83,6 +120,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="uh252489_dbModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TransporterTypeId" ColumnName="TransporterTypeId" />
+                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+                <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusId" />
+                <ScalarProperty Name="DeliveryTypeId" ColumnName="DeliveryTypeId" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="OrderNumber1C" ColumnName="OrderNumber1C" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -105,6 +161,7 @@
     <Diagrams>
       <Diagram Name="EntityStorage" ZoomLevel="92">
         <EntityTypeShape EntityType="uh252489_dbModel.Goods" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="uh252489_dbModel.Orders" Width="1.5" PointX="3.375" PointY="0.75" Height="3.5186979166666656" />
       </Diagram>
     </Diagrams>
   </Designer>

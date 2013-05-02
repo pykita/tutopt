@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="uh252489_dbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="EntityStorage" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Goods" EntityType="uh252489_dbModel.Goods" />
+    <EntitySet Name="Orders" EntityType="uh252489_dbModel.Orders" />
+  </EntityContainer>
+  <EntityType Name="Goods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Article" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="ShortInformation" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="FullInformation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="MaxPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="MiddlePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="MinPrie" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="ImageId" Type="Int32" Nullable="false" />
+    <Property Name="IsWarranty" Type="Boolean" Nullable="false" />
+    <Property Name="Warranty" Type="Int16" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="OrderNumber1C" />
+    <Property Type="String" Name="CustomerName" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="String" Name="PhoneNumber" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="OrderDate" />
+    <Property Type="DateTime" Name="DeliveryDate" />
+    <Property Type="Byte" Name="DeliveryTypeId" Nullable="false" />
+    <Property Type="Byte" Name="OrderStatusId" Nullable="false" />
+    <Property Type="Int16" Name="PaymentTypeId" Nullable="false" />
+    <Property Type="Int16" Name="TransporterTypeId" Nullable="false" />
+    <Property Type="String" Name="Comment" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
